@@ -1,0 +1,30 @@
+_export:
+  !include : 'config/src_params.yml'
+  td:
+    database: cdp_unification_${sub}
+    src_database: cdp_unification_${sub}
+
++move_unified:
+  +get_table_name:
+    td_for_each>: golden/queries/unified_table_name.sql
+    _parallel: true
+    _do:
+      +copy_data:
+        td>: golden/queries/copy_table.sql
+        database: ${gld}_${sub}
+
+
++unification_master_clean:
+  td>: golden/queries/unification_master_clean.sql
+  database: ${gld}_${sub}
+  create_table: ${gld}_${sub}.unification_master_clean
+
++attributes:
+  td>: golden/queries/attributes.sql
+  database: ${gld}_${sub}
+  create_table: ${gld}_${sub}.derived_attributes
+
++household_attributes:
+  td>: golden/queries/household_attributes.sql
+  database: ${gld}_${sub}
+  create_table: ${gld}_${sub}.household_attributes

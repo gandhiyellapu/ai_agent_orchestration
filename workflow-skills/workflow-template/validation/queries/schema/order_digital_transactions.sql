@@ -1,0 +1,41 @@
+drop table if exists order_digital_transactions_tmp;
+
+create table order_digital_transactions_tmp (
+    customer_id varchar,
+    email varchar,
+    phone_number varchar,
+    token varchar,
+    order_no varchar,
+    order_datetime varchar,
+    payment_method varchar,
+    promo_code varchar,
+    projected_delivery_date varchar,
+    bopis_flag varchar,
+    location_id varchar,
+    location_address varchar,
+    location_city varchar,
+    location_state varchar,
+    location_postal_code varchar,
+    location_country varchar,
+    markdown_flag varchar,
+    guest_checkout_flag varchar,
+    order_transaction_type varchar,
+    amount double,
+    discount_amount double,
+    net_amount double,
+    shipping_cost bigint,
+    expidated_ship_flag varchar,
+    -- Billing address fields
+    billing_address varchar,
+    billing_city varchar,
+    billing_state varchar,
+    billing_postal_code varchar,
+    billing_country varchar,
+    -- Shipping address fields
+    shipping_address varchar,
+    shipping_city varchar,
+    shipping_state varchar,
+    shipping_postal_code varchar,
+    shipping_country varchar,
+    time bigint
+);
