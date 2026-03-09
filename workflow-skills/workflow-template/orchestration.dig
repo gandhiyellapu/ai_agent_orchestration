@@ -55,16 +55,13 @@ _export:
     workflow_to_run: wf5_golden
   call>: run_workflow_with_logging.dig
 
-+run_master_segment_and_analytics:
-  _parallel: true
-
-  +analytics:
++analytics:
     _export:
       step_name: create_master_segment
       workflow_to_run: wf6_analytics
     call>: wf01_run_workflow_with_logging.dig
 
-  +create_refresh_master_segment:
++create_refresh_master_segment:
     _export:
       step_name: create_refresh_master_segment
       workflow_to_run: wf7_create_refresh_master_segment
